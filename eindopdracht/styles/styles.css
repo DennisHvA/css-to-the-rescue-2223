@@ -56,10 +56,58 @@ img {
 /* interactie */
 /* -------- */
 
+form label {
+    display: none;
+}
+
+form:first-of-type label:has(+ label :checked) {
+	display:block;
+}
+
+form:first-of-type label:has(:checked) + label {
+	display:block;
+}
 
 /* -------- */
 /* beeldscherm */
 /* -------- */
+
+ul {
+	margin:0;
+	padding:1em;
+	list-style:none;
+	
+	display:flex;
+	gap:0.5em;
+}
+
+li {
+	display:flex;
+	flex-direction: column;
+	align-items:center;
+}
+
+ul > li > ul {
+	flex-direction: column;
+}
+
+ul > li > ul > li {
+    display: flex;
+    flex-direction: column;
+    gap: .5em;
+}
+
+li > svg {
+    height: 2em;
+	fill: red;
+	opacity: .5;
+}
+
+li > p {
+    font-size: .7em;
+    text-transform: none;
+}
+/*  */
 
 embed {
     display: none;
@@ -340,34 +388,50 @@ body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child
     z-index: 2;
 }
 
-
 body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section:nth-of-type(1){
+    width: 100%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-between;
     gap: 0.4em;
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section:nth-child(2) {
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section:nth-of-type(2) {
+    width: 100%;
+    height: 100%;
     position: absolute;
-    transform: rotate(-90deg);
-    left: 4px;
-}
-
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section:nth-child(3) {
-    position: absolute;
+    top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
     transform: rotate(90deg);
-    right: 4px;
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section:nth-child(4) {
-    position: absolute;
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section:nth-of-type(1) > div:nth-child(2) {
+    transform: rotate(-180deg);
+}
+
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section:nth-of-type(2) > div:nth-child(1) {
+    transform: rotate(-0deg);
+}
+
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section:nth-of-type(2) > div:nth-child(2) {
     transform: rotate(180deg);
-    bottom: 0px;
-    left: 41px;
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > div:nth-child(1) {
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(1),
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(2),
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(3),
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(4) {
     position: relative;
     width: 1.8em;
     border-left: 15px solid transparent;
@@ -378,7 +442,10 @@ body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child
     opacity: 0.8;
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > div:nth-child(1):after {
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(1):after,
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(2):after,
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(3):after,
+body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > section > div:nth-child(4):after {
     position: absolute;
     top: 2.5px;
     left: -11px;
@@ -388,7 +455,50 @@ body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child
     border-bottom: 8px solid var(--color-ps-dpad);
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > div:nth-child(2) {
+form:first-of-type {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+form:nth-of-type(2) {
+    position: absolute;
+    width: 70%;
+    height: 70%;
+    top: 15%;
+    left: 15%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+label {
+    z-index: 3;
+}
+form:nth-of-type(2) label{
+    display: block;
+}
+
+form:first-of-type div {
+    transform: rotate(-90deg);
+}
+
+form:first-of-type label + label div {
+    transform: rotate(90deg);
+}
+
+form label input {
+	position:absolute;
+	left:-9999em;
+}
+
+form label div{
     position: relative;
     height: 1.2em;
     width: 20px;
@@ -397,11 +507,11 @@ body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child
     border-radius: .1em;
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > div:nth-child(2):active {
+form label div:active {
     box-shadow: inset 0 1px 1px 0.1px var(--color-ps-shadow), 0 0 .1em .25em var(--color-ps-shadow);
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > div:nth-child(2):after {
+form label div:after {
     position: absolute;
     content: "";
     border-left: 10px solid transparent;
@@ -410,7 +520,7 @@ body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child
     transform: translateY(270%);
 }
 
-body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child(1) > section > div:nth-child(2):before {
+form label div:before {
     position: absolute;
     top: 19px;
     left: -4px;
@@ -421,7 +531,6 @@ body > section > section:nth-child(2) > section:nth-child(2) > section:nth-child
     border-radius: 1em;
     filter: drop-shadow(0px 2px .7px rgb(0 0 0 / 1));
 }
-
 /* ps shapes */
 
 body > section > section:nth-child(3) > section:nth-child(2) > section:nth-child(1) {
