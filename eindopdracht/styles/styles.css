@@ -24,6 +24,7 @@
 html, body {
     height:100%;
     margin:0;
+    background-color: blue;
 }
   
 button:not([disabled]) {
@@ -68,6 +69,41 @@ form:first-of-type label:has(:checked) + label {
 	display:block;
 }
 
+ul li ul li:not(:first-child) {
+	visibility: hidden;
+}
+
+:has(form:first-of-type label:nth-child(1) :checked) li:nth-child(1) ul li:first-of-type svg,
+:has(form:first-of-type label:nth-child(2) :checked) li:nth-child(2) ul li:first-of-type svg,
+:has(form:first-of-type label:nth-child(3) :checked) li:nth-child(3) ul li:first-of-type svg,
+:has(form:first-of-type label:nth-child(4) :checked) li:nth-child(4) ul li:first-of-type svg,
+:has(form:first-of-type label:nth-child(5) :checked) li:nth-child(5) ul li:first-of-type svg,
+:has(form:first-of-type label:nth-child(6) :checked) li:nth-child(6) ul li:first-of-type svg,
+:has(form:first-of-type label:nth-child(7) :checked) li:nth-child(7) ul li:first-of-type svg,
+:has(form:first-of-type label:nth-child(8) :checked) li:nth-child(8) ul li:first-of-type svg{
+	opacity: 1;
+}
+
+:has(form:first-of-type label:nth-child(1) :checked) li:nth-child(1) ul li:first-of-type p,
+:has(form:first-of-type label:nth-child(2) :checked) li:nth-child(2) ul li:first-of-type p,
+:has(form:first-of-type label:nth-child(3) :checked) li:nth-child(3) ul li:first-of-type p,
+:has(form:first-of-type label:nth-child(4) :checked) li:nth-child(4) ul li:first-of-type p,
+:has(form:first-of-type label:nth-child(5) :checked) li:nth-child(5) ul li:first-of-type p,
+:has(form:first-of-type label:nth-child(6) :checked) li:nth-child(6) ul li:first-of-type p,
+:has(form:first-of-type label:nth-child(7) :checked) li:nth-child(7) ul li:first-of-type p,
+:has(form:first-of-type label:nth-child(8) :checked) li:nth-child(8) ul li:first-of-type p{
+	visibility: visible;
+}
+
+/* links rechts instellingen */
+:has(form:first-of-type label:nth-child(2) :checked) li:nth-child(2) ul li {
+	visibility: visible;
+}
+
+/* links rechts game */
+:has(form:first-of-type label:nth-child(6) :checked) li:nth-child(6) ul li {
+	visibility: visible;
+}
 /* -------- */
 /* beeldscherm */
 /* -------- */
@@ -99,7 +135,7 @@ ul > li > ul > li {
 
 li > svg {
     height: 2em;
-	fill: red;
+	fill: white;
 	opacity: .5;
 }
 
@@ -200,6 +236,10 @@ body > section > section:nth-child(1) > section:nth-child(1) > section > section
     box-shadow: 0px 0px 1px 0.5px var(--color-ps-shadow);
 }
 
+body > section > section:nth-child(1) > section:nth-child(1) > section > section:nth-child(1) > div {
+    background-color: red;
+}
+
 /* front */
 
 body > section > section:nth-child(1) > section:nth-child(2) {
@@ -253,6 +293,24 @@ body > section > section:nth-child(1) > section:nth-child(2) > section > section
 }
 
 body > section > section:nth-child(1) > section:nth-child(2) > section > section:nth-child(2) > div {
+    position: relative;
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    border-left: 25px solid var(--color-ps-shadow);
+    filter: drop-shadow(0px 0px 1px var(--color-ps-shadow));
+}
+
+body > section > section:nth-child(1) > section:nth-child(2) > section > section:nth-child(2) > div::after {
+    content: "";
+    position: absolute;
+    left: -23px;
+    top: -6px;
+    border-top: 6px solid transparent;
+    border-bottom: 6px solid transparent;
+    border-left: 19px solid var(--color-ps-button);
+}
+
+/* body > section > section:nth-child(1) > section:nth-child(2) > section > section:nth-child(2) > div {
     position:absolute;
     top: 8px;
 	
@@ -268,7 +326,7 @@ body > section > section:nth-child(1) > section:nth-child(2) > section > section
 	inset:0;
 	background-color:black;
 	clip-path: polygon(100% 50%, 0 25%, 0 75%);
-}
+} */
 
 body > section > section:nth-child(1) > section:nth-child(2) > div {
     position: relative;
@@ -496,6 +554,11 @@ form:first-of-type label + label div {
 form label input {
 	position:absolute;
 	left:-9999em;
+}
+
+body > article > ul > li > ul > li > p {
+    color: white;
+    visibility: hidden;
 }
 
 form label div{
