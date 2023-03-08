@@ -31,8 +31,10 @@ button:not([disabled]) {
 }
   
 body {
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    gap: 5em;
+    align-items: center;
 }
 
 p {
@@ -51,8 +53,22 @@ img {
 }
 
 /* -------- */
+/* interactie */
+/* -------- */
+
+
+/* -------- */
 /* beeldscherm */
 /* -------- */
+
+embed {
+    display: none;
+}
+  
+button:active + embed { 
+    display: block; 
+    visibility: hidden;
+}
 
 /* -------- */
 /* controller */
@@ -162,6 +178,7 @@ body > section > section:nth-child(1) > section:nth-child(2) > svg {
 }
 
 body > section > section:nth-child(1) > section:nth-child(2) > section {
+    position: relative;
     display: flex;
     gap: 3em;
 }
@@ -188,21 +205,21 @@ body > section > section:nth-child(1) > section:nth-child(2) > section > section
 }
 
 body > section > section:nth-child(1) > section:nth-child(2) > section > section:nth-child(2) > div {
-    position: relative;
-    border-top: 8px solid transparent;
-    border-bottom: 8px solid transparent;
-    border-left: 25px solid var(--color-ps-shadow);
-    filter: drop-shadow(0px 0px 1px var(--color-ps-shadow));
+    position:absolute;
+    top: 8px;
+	
+	width:1.8em;
+	height:1.8em;
+	
+	filter: url("#blurry-outline");
 }
 
-body > section > section:nth-child(1) > section:nth-child(2) > section > section:nth-child(2) > div::after {
-    content: "";
-    position: absolute;
-    left: -23px;
-    top: -6px;
-    border-top: 6px solid transparent;
-    border-bottom: 6px solid transparent;
-    border-left: 19px solid var(--color-ps-button);
+body > section > section:nth-child(1) > section:nth-child(2) > section > section:nth-child(2) > div::before {
+    content:"";
+	position:absolute;
+	inset:0;
+	background-color:black;
+	clip-path: polygon(100% 50%, 0 25%, 0 75%);
 }
 
 body > section > section:nth-child(1) > section:nth-child(2) > div {
@@ -296,8 +313,11 @@ body > section > section:nth-child(3) > section:nth-child(1) > div:nth-child(1) 
 }
 
 /* circle */
-body > section:nth-child(1) > section:nth-child(2) > section:nth-child(2),
-body > section:nth-child(1) > section:nth-child(3) > section:nth-child(2) {
+body > section > section:nth-child(2) > section:nth-child(2),
+body > section > section:nth-child(3) > section:nth-child(2)
+/* body > section:nth-child(1) > section:nth-child(2) > section:nth-child(2),
+body > section:nth-child(1) > section:nth-child(3) > section:nth-child(2)  */
+{
     display: grid;
     place-items: center;
     background-color: var(--color-ps-frame);
